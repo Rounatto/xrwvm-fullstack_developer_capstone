@@ -44,9 +44,11 @@ def login_user(request):
     return JsonResponse(data)
 
 
-def logout_request(request):
+@csrf_exempt
+def logout_request(request, username=""):
     logout(request)
-    return JsonResponse({"logged_out": True})
+    data = {"userName": ""}
+    return JsonResponse(data)
 
 
 @csrf_exempt
